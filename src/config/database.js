@@ -13,9 +13,12 @@ module.exports = {
     underscoredAll: true,
     createdAt: 'created_at',
     updatedAt: 'updated_at',
+    // freezeTableName: true,
+
   },
   dialectOptions: {
     timezone: 'America/Sao_Paulo',
   },
+  timezone: 'America/Sao_Paulo',
 
 };

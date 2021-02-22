@@ -27,8 +27,12 @@ module.exports = {
       allowNull: false,
     },
     idade: {
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
       allowNull: false,
+    },
+    dt_nascimento: {
+      type: Sequelize.DATE,
+      allowNull: true,
     },
     created_at: {
       type: Sequelize.DATE,

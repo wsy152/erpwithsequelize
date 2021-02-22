@@ -1,35 +1,38 @@
 module.exports = {
-  up: async (queryInterface, Sequelize) => queryInterface.createTable('COMPANY', {
+  up: async (queryInterface, Sequelize) => queryInterface.createTable('usuarios', {
     id: {
       type: Sequelize.INTEGER,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
     },
-    razao: {
+    nome: {
       type: Sequelize.STRING(150),
       allowNull: false,
     },
-    fantasia: {
+
+    email: {
       type: Sequelize.STRING(150),
       allowNull: true,
+      unique: true,
     },
-    cnpj: {
-      type: Sequelize.STRING(18),
+    cpf: {
+      type: Sequelize.STRING,
+      allowNull: true,
+      unique: true,
+    },
+    password_hash: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    empresa_id: {
+      type: Sequelize.INTEGER,
       allowNull: false,
+      references: { model: 'empresas', key: 'id' },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
     },
-    ie: {
-      type: Sequelize.STRING(20),
-      allowNull: true,
-    },
-    dt_abertura: {
-      type: Sequelize.DATE,
-      allowNull: true,
-    },
-    ativo: {
-      type: Sequelize.BOOLEAN(true),
-      allowNull: true,
-    },
+
     created_at: {
       type: Sequelize.DATE,
       allowNull: false,
@@ -40,5 +43,5 @@ module.exports = {
     },
   }),
 
-  down: async (queryInterface) => queryInterface.dropTable('COMPANY'),
+  down: async (queryInterface) => queryInterface.dropTable('usuarios'),
 };
