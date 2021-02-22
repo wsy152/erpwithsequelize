@@ -32,6 +32,10 @@ module.exports = {
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
     },
+    ativo: {
+      type: Sequelize.BOOLEAN,
+      allowNull: true,
+    },
 
     created_at: {
       type: Sequelize.DATE,

@@ -36,7 +36,7 @@ export default class Usuarios extends Model {
         validate: {
           notEmpty: {
             args: [3, 255],
-            msg: ' Nome deve conter minimo 3 caracter',
+            msg: ' passWord deve conter 3 caracteres',
           },
 
         },
@@ -47,6 +47,10 @@ export default class Usuarios extends Model {
       cpf: {
         type: Sequelize.STRING,
 
+      },
+      ativo: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
       },
 
     }, {
