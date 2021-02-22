@@ -57,7 +57,9 @@ export default class Usuarios extends Model {
       sequelize,
     });
     this.addHook('beforeSave', async (usuario) => {
-      usuario.password_hash = await bcryptjs.hash(usuario.password, 8);
+      if (usuario.password) {
+        usuario.password_hash = await bcryptjs.hash(usuario.password, 8);
+      }
     });
     return this;
   }

@@ -3,15 +3,7 @@ import Usuarios from '../models/usuariosModels';
 class UsuariosController {
   async store(req, res) {
     try {
-      const novoUsuarios = await Usuarios.create(
-        req.body,
-        // nome: 'edvaldo',
-        // email: 'edvaldo1@bol.com.br',
-        // password: '123456',
-        // empresa_id: 3,
-        // cpf: '269.615.448-08',
-
-      );
+      const novoUsuarios = await Usuarios.create(req.body);
 
       return res.status(200).json(novoUsuarios);
     } catch (e) {
@@ -35,6 +27,27 @@ class UsuariosController {
       const { id } = req.params;
       const usuario = await Usuarios.findByPk(id);
       return res.json(usuario);
+    } catch (error) {
+      return res.json(null);
+    }
+  }
+
+  async update(req, res) {
+    try {
+      const { id } = req.params;
+      if (!id) {
+        return res.status(400).json({
+          errors: ['ID não enviado'],
+        });
+      }
+      const usuario = await Usuarios.findByPk(id);
+      if (!usuario) {
+        return res.status(400).json({
+          errors: ['usuarios não existe'],
+        });
+      }
+      const updateDados = await usuario.update(req.body);
+      return res.json(updateDados);
     } catch (error) {
       return res.json(null);
     }
