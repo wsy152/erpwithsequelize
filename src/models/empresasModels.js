@@ -9,7 +9,7 @@ export default class Empresa extends Model {
         validate: {
           notEmpty: {
             args: [3, 150],
-            msg: ' Razao Social deve conter minímo entre 3 e 150 caracteres',
+            msg: ' Razão Social deve conter minímo entre 3 e 150 caracteres',
           },
 
         },
