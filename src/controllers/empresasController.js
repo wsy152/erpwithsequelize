@@ -1,17 +1,17 @@
 import Empresa from '../models/empresasModels';
 
 class EmpresaController {
-  async index(req, res) {
-    const novaEmpresa = await Empresa.create({
-      razao: 'Jonas e Cordeiro',
-      fantasia: 'Cordeiro',
-      cnpj: '01.545.828/0001-61',
-      ie: '32657892',
-      dt_abertura: '2016-01-01 00:00:00+00:00',
+  async store(req, res) {
+    try {
+      const novaEmpresa = await Empresa.create(req.body);
 
-    });
-
-    res.status(200).json(novaEmpresa);
+      return res.status(200).json(novaEmpresa);
+    } catch (e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
   }
 }
+
 export default new EmpresaController();

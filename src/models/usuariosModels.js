@@ -36,7 +36,7 @@ export default class Usuarios extends Model {
         validate: {
           notEmpty: {
             args: [3, 255],
-            msg: ' passWord deve conter 3 caracteres',
+            msg: ' PassWord deve conter 3 caracteres',
           },
 
         },

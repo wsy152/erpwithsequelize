@@ -16,10 +16,11 @@ module.exports = {
     },
     cnpj: {
       type: Sequelize.STRING(18),
-      allowNull: false,
+      allowNull: true,
+      unique: true,
     },
     ie: {
-      type: Sequelize.STRING(20),
+      type: Sequelize.STRING(25),
       allowNull: true,
     },
     dt_abertura: {
@@ -27,7 +28,7 @@ module.exports = {
       allowNull: true,
     },
     ativo: {
-      type: Sequelize.BOOLEAN(true),
+      type: Sequelize.BOOLEAN,
       allowNull: true,
     },
     created_at: {
