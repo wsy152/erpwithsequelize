@@ -28,19 +28,12 @@
     "configurations": [
 
         {
-
-            "type": "pwa-node",
-
-            "request": "attach",
-
-            "name": "Attach by Process ID",
-
-            "processId": "${command:PickProcess}",
-
-            //"protocol": "inspector",
-
-            "restart": true
-
+          "type": "pwa-node",
+          "request": "attach",
+          "name": "Attach by Process ID",
+          "processId": "${command:PickProcess}",
+          //"protocol": "inspector",
+          "restart": true
         },
 
     ]

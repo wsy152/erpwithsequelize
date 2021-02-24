@@ -9,6 +9,23 @@ import empresaRoutes from './src/routes/empresaRoutes';
 import usuariosRoutes from './src/routes/usuariosRoutes';
 import tokenRoutes from './src/routes/tokenRoutes';
 
+// const swaggerJSDoc = require('swagger-jsdoc');
+// const swaggerUI = require('swagger-ui-express');
+
+// const sweggerOptions = {
+//   definition: {
+//     openapi: '3.0.0.',
+//     info: {
+//       title: 'teste',
+//     },
+//     server: ['http://localhost:3000'],
+
+//   },
+//   apis: ['*.js'],
+// };
+// const swaggerDocs = swaggerJSDoc(sweggerOptions);
+// this.app.use('/apu=i-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+
 class App {
   constructor() {
     this.app = express();
