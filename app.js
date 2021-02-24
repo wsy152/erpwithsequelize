@@ -7,6 +7,7 @@ import './src/database';
 import express from 'express';
 import empresaRoutes from './src/routes/empresaRoutes';
 import usuariosRoutes from './src/routes/usuariosRoutes';
+import tokenRoutes from './src/routes/tokenRoutes';
 
 class App {
   constructor() {
@@ -23,6 +24,7 @@ class App {
   routes() {
     this.app.use('/empresas/', empresaRoutes);
     this.app.use('/usuarios/', usuariosRoutes);
+    this.app.use('/tokens/', tokenRoutes);
   }
 }
 export default new App().app;

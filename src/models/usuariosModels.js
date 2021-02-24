@@ -32,14 +32,14 @@ export default class Usuarios extends Model {
 
       password: {
         type: Sequelize.VIRTUAL,
-        defaultValue: '',
-        validate: {
-          notEmpty: {
-            args: [3, 255],
-            msg: ' PassWord deve conter 3 caracteres',
-          },
+        // defaultValue: '',
+        // validate: {
+        //   // notEmpty: {
+        //   //   args: [3, 255],
+        //   //   msg: ' PassWord deve conter 3 caracteres',
+        //   // },
 
-        },
+        // },
       },
       empresa_id: {
         type: Sequelize.INTEGER,
@@ -62,5 +62,9 @@ export default class Usuarios extends Model {
       }
     });
     return this;
+  }
+
+  passwordIsValid(password) {
+    return bcryptjs.compare(password, this.password_hash);
   }
 }
